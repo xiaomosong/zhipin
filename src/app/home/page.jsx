@@ -94,6 +94,7 @@ export default function Home() {
             <Chip
               color="default"
               size="md"
+              key={item.title}
               className="hover:text-[#00c1c1] hover:cursor-pointer hover:bg-white"
             >
               {item.title}
@@ -104,7 +105,7 @@ export default function Home() {
       <Suspense fallback={<div className="text-red-500">loading...</div>}>
         <div className="container mx-auto">
           {tabsList.map((item) => (
-            <>
+            <div key={item.title}>
               <Job tabsList={item.tabsList} title={item.title} />
 
               <div className="flex justify-center pt-5 pb-[90px]">
@@ -116,7 +117,7 @@ export default function Home() {
                   查看更多 <FaArrowRightLong />
                 </Button>
               </div>
-            </>
+            </div>
           ))}
         </div>
       </Suspense>

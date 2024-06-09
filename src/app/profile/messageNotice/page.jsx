@@ -298,6 +298,7 @@ const SetHelloNotice = ({ title, children }) => {
           {greetingList[current].map((item, index) => (
             <div
               onClick={() => handleCurrent(item)}
+              key={item.encryptId}
               className={`p-4 ${
                 currentItem === item.templateId && "ring-2 ring-[#00c1c1]"
               } rounded-[15px] dark:hover:border-[#00c1c1] hover:border-[#00c1c1] border dark:border-gray-600 hover:cursor-pointer hover:bg-gray-50/70 dark:hover:bg-gray-800/70 bg-gray-50/50 dark:bg-gray-900/50 text-gray-800 dark:text-gray-200`}

@@ -60,7 +60,7 @@ export default function Job({ tabsList, title }) {
                     </div>
                     <div className="flex gap-1 px-2">
                       {item.jobLabels.map((item) => (
-                        <Chip radius="sm" className="">
+                        <Chip radius="sm" className="" key={item}>
                           {item}
                         </Chip>
                       ))}

@@ -151,6 +151,7 @@ const MonitorLogin = ({
       <div className="rounded-lg p-1 bg-gray-100 dark:bg-gray-500 dark:bg-opacity-30 my-3 group hover:cursor-pointer flex items-center">
         {tabs.map((item, index) => (
           <div
+          key={item.text}
             className={`${
               currentIndex === index &&
               "dark:bg-gray-100 bg-gray-200 rounded-[10px] dark:text-[#00c1c1] text-[#00c1c1]"
@@ -301,7 +302,7 @@ export default function Layout() {
               </div>
             </div>
             {messages[current].map((item, index) => (
-              <div className="flex gap-4">
+              <div className="flex gap-4" key={item.text}>
                 <item.icon
                   size={37}
                   strokeWidth={"1px"}
