@@ -6,7 +6,21 @@
  */
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  crossOrigin: 'anonymous',
   output: 'standalone',
+  async headers() {
+    return [
+      {
+        source: '/wapi/:path*',
+        headers: [
+          { key: 'Access-Control-Allow-Origin', value: '*' },
+          { key: 'Access-Control-Allow-Credentials', value: 'true' },
+          { key: 'Access-Control-Allow-Methods', value: 'GET, POST, OPTIONS,DELETE, PUT, PATCH' },
+          { key: 'Access-Control-Allow-Origin', value: '*' },
+        ]
+      }
+    ]
+  },
   images: {
     remotePatterns: [
       {

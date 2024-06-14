@@ -33,7 +33,7 @@ export default function Job({ tabsList, title }) {
       >
         {tabsList.map((item, index) => (
           <Tab key={index} title={item.title}>
-            <div className="grid grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 sm:gap-3 gap-2 lg:grid-cols-3">
               {list.map((item) => (
                 <Card
                   shadow="none"

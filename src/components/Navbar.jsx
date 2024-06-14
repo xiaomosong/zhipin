@@ -113,9 +113,8 @@ export default function NavbarCus() {
           className="mr-4 object-contain"
           src="https://img.bosszhipin.com/static/file/2023/odhroxegzz1678788090652.png"
         />
-
-        <NavbarContent className="gap-4 relative hidden xl:flex">
-          <Location />
+        <NavbarContent className="gap-4 relative hidden xl:flex ">
+        <Location />
           {navs.map((item, index) => (
             <NavbarItem key={item.title}>
               <Link
@@ -146,7 +145,7 @@ export default function NavbarCus() {
                 </Button>
               </div>
             ) : (
-              <div className="flex gap-2 items-center">
+              <div className="flex gap-4 items-center">
                 <div
                   className={`bg-gradient-to-r group backdrop-blur-md hidden sm:flex from-[rgb(223,246,255)] dark:from-[#3c4d54]  to-[#ebfffd] dark:to-[#3f5b59] items-center justify-center rounded-[15px]`}
                 >
@@ -211,7 +210,7 @@ export default function NavbarCus() {
               </div>
             )}
           </NavbarContent>
-          <div className="h-[20px] w-[1px] hidden md:block bg-gray-300 dark:bg-gray-500 mx-4"></div>
+          <div className="h-[20px] w-[1px] hidden md:block bg-gray-300 dark:bg-gray-500 ml-2"></div>
           <div className="hidden sm:block">
             <ToolBar />
           </div>

@@ -77,7 +77,7 @@ const MessageList = ({ list, setCurrent, current }) => {
       onOpenChange={(open) => setIsOpen(open)}
     >
       <PopoverTrigger>
-        <Button className="flex lg:hidden hover:bg-gray-500/50">
+        <Button className="flex hover:bg-gray-500/50">
           消息通知
           <ChevronRight />
         </Button>
@@ -106,7 +106,7 @@ const MessageList = ({ list, setCurrent, current }) => {
   );
 };
 const HomeCom = (props) => {
-  let [list, setList] = useState(replyList);
+  const [list, setList] = useState(replyList);
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [title, setTitle] = useState("");
   const [typeForm, setType] = useState("add");
@@ -164,9 +164,9 @@ const HomeCom = (props) => {
 
   return (
     <div>
-      <div className="flex justify-between overflow-hidden items-center border-b bg-gray-200/50 dark:bg-gray-900/50 sticky z-10 backdrop-blur-lg px-4 py-4 md:px-6 md:pb-6 top-0 border-b-gray-700/20 pb-4 mb-4 dark:border-b-gray-200/20">
+      <div className="flex justify-between overflow-hidden items-center border-b bg-gray-200/50 dark:bg-gray-900/50 sticky z-10 backdrop-blur-lg px-4 py-4 top-0 border-b-gray-700/20 pb-4 mb-4 dark:border-b-gray-200/20">
         <div className="text-lg text-gray-900 dark:text-gray-200">
-          {props.title}
+          {props.title}({list.length})
         </div>
         <div className="flex gap-2">
           <Button
@@ -317,7 +317,7 @@ const SetNoticeSharp = () => {
 export default function MessageNotice() {
   const list = [
     {
-      title: "常用语 (8条)",
+      title: "常用语",
       key: "home",
       subTitle: "",
       icon: MessageSquareText,
@@ -344,14 +344,14 @@ export default function MessageNotice() {
   const CurrentComponent = {
     0: (
       <HomeCom title={titleObj.title}>
-        <div slot="rightAction">
+        <div slot="rightAction" className="lg:hidden">
           <MessageList list={list} current={current} setCurrent={setCurrent} />
         </div>
       </HomeCom>
     ),
     1: (
       <SetHelloNotice title={titleObj.title}>
-        <div slot="rightAction">
+        <div slot="rightAction" className="lg:hidden">
           <MessageList list={list} current={current} setCurrent={setCurrent} />
         </div>
       </SetHelloNotice>
@@ -361,7 +361,7 @@ export default function MessageNotice() {
   return (
     <div className="container mx-auto gap-4 flex mt-3 h-[900px] xl:px-[100px] px-4 sm:px-0">
       <div className="hidden lg:flex-[.2] lg:flex flex-col backdrop-blur-lg py-4 bg-gray-300/50 dark:bg-gray-900/50 rounded-[15px] overflow-auto">
-        <div className="text-gray-600 dark:text-gray-200 px-4 md:px-6 py-4 md:py-5 text-2xl">
+        <div className="text-gray-600 dark:text-gray-200 px-4 md:px-6 py-4 md:py-5 text-2xl border-b border-b-gray-300/60 dark:border-b-gray-600/50">
           消息通知
         </div>
         <div className="flex flex-col gap-3 px-3 mt-4">

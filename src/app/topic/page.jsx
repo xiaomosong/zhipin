@@ -1,5 +1,5 @@
 "use client";
-import { Button, Input } from "@nextui-org/react";
+import { Button, Input, Tooltip } from "@nextui-org/react";
 import React, { useState } from "react";
 import { IoSearch } from "react-icons/io5";
 import { SiAnswer } from "react-icons/si";
@@ -9,14 +9,38 @@ import { GrRefresh } from "react-icons/gr";
 import Image from "next/image";
 import { FiPlus } from "react-icons/fi";
 import TopicList from "./components/TopicList";
+import { useRouter } from "next/navigation";
 
 export default function Topic() {
   const [current, setCurrent] = useState(0);
-  const data = [
-    { title: "内容量", num: 58, changeYes: "昨日无变化" },
-    { title: "获赞", num: 342, changeYes: "昨日无变化" },
-    { title: "粉丝数", num: 231, changeYes: "昨日无变化" },
+  const [selected, setSelected] = useState(0);
+  const myData = [
+    {
+      title: "我的数据",
+      dataOpt: [
+        { title: "内容量", num: 231, changeYes: "昨日无变化", id: 1 },
+        { title: "获赞", num: 232, changeYes: "昨日无变化", id: 2 },
+        { title: "粉丝数", num: 623, changeYes: "昨日无变化", id: 3 },
+      ],
+    },
+    {
+      title: "问答数据",
+      dataOpt: [
+        { title: "回答数", num: 28, changeYes: "昨日无变化", id: 1 },
+        { title: "获赞", num: 283, changeYes: "昨日无变化", id: 2 },
+        { title: "精选数", num: 243, changeYes: "昨日无变化", id: 3 },
+      ],
+    },
+    {
+      title: "文章数据",
+      dataOpt: [
+        { title: "文章数", num: 223, changeYes: "昨日无变化", id: 1 },
+        { title: "阅读数", num: 123, changeYes: "昨日无变化", id: 2 },
+        { title: "点赞数", num: 323, changeYes: "昨日无变化", id: 3 },
+      ],
+    },
   ];
+  const router = useRouter()
   const followList = [
     {
       url: "https://img.bosszhipin.com/beijin/upload/get/20230206/4558a342cf659187bfe4b88fe0d2d81e85379cef7ac1a3aef222e0b500adad7a9052e0df95d29ea0.jpg",
@@ -83,7 +107,7 @@ export default function Topic() {
                   current === index && "bg-[#00c1c1]/20 text-[#00c1c1]"
                 }`}
                 key={item}
-                onClick={() => setCurrent(index)}
+                onClick={() => {setCurrent(index),index===3 && router.push('/wiki')}}
               >
                 {item}
               </Button>
@@ -114,7 +138,7 @@ export default function Topic() {
               <div className="flex flex-col gap-2  items-center group hover:cursor-pointer">
                 <MessageCircleQuestion
                   size={35}
-                  className="text-blue-600 transition-all group-hover:-translate-y-1 group-hover:shadow-blue-600/40 group-hover:shadow-sm duration-400"
+                  className="text-blue-600 transition-all group-hover:-translate-y-1 group-hover:drop-shadow-xl duration-400"
                 />
                 <div className="text-sm text-gray-500 dark:text-gray-300/80 group-hover:text-[#00c1c1]">
                   发提问
@@ -123,7 +147,7 @@ export default function Topic() {
               <div className="flex flex-col gap-2 group items-center hover:cursor-pointer">
                 <SiAnswer
                   size={30}
-                  className="text-red-600 transition-all group-hover:-translate-y-1 duration-400 group-hover:shadow-red-600/40"
+                  className="text-red-600 transition-all group-hover:-translate-y-1 group-hover:drop-shadow-xl duration-400 "
                 />
                 <div className="text-sm text-gray-500 dark:text-gray-300/80 group-hover:text-[#00c1c1]">
                   去回答
@@ -141,11 +165,35 @@ export default function Topic() {
           </div>
           <div className="backdrop-blur-lg p-4 bg-gray-300/50 dark:bg-gray-900/50 rounded-[15px] overflow-hidden">
             <div className="text-lg flex items-center justify-between text-gray-900 dark:text-gray-200">
-              我的数据 <AlignRight />{" "}
+              {myData[selected].title}
+              <Tooltip
+              className="bg-gray-200/30 dark:bg-gray-900/30 backdrop-blur-lg"
+                content={
+                  <div className="flex flex-col gap-1 py-2">
+                    {myData
+                      .map((item) => item.title)
+                      .map((item, index) => (
+                        <Button
+                          size="md"
+                          className={`bg-transparent hover:text-[#00c1c1] ${
+                            selected === index && "text-[#00c1c1]"
+                          }`}
+                          key={item.title}
+                          onClick={() => setSelected(index)}
+                        >
+                          {item}
+                        </Button>
+                      ))}
+                  </div>
+                }
+                placement="bottom"
+              >
+                <AlignRight />
+              </Tooltip>
             </div>
             <div className="flex items-center justify-evenly my-3">
-              {data.map((item) => (
-                <div className="flex flex-col items-center" key={item}>
+              {myData[selected].dataOpt.map((item) => (
+                <div className="flex flex-col items-center" key={item.id}>
                   <div className="text-sm text-gray-600 dark:text-gray-300/80">
                     {item.title}
                   </div>
@@ -170,7 +218,7 @@ export default function Topic() {
                   className="flex group  hover:cursor-pointer hover:text-[#00c1c1] dark:hover:text-[#00c1c1] hover:bg-gray-300/50 dark:hover:bg-gray-300/20 rounded-[15px] gap-2 justify-start text-gray-600 dark:text-gray-300/90 text-sm p-3 tracking-wide leading-6"
                   key={item}
                 >
-                  <div className="font-bold group-[:nth-child(1)]:text-red-600 group-[:nth-child(2)]:text-orange-500 group-[:nth-child(3)]:text-yellow-500">
+                  <div className="font-bold  group-[:nth-child(1)]:text-red-600 group-[:nth-child(2)]:text-orange-500 group-[:nth-child(3)]:text-yellow-500">
                     {index + 1}
                   </div>{" "}
                   {item}

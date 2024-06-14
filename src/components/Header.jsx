@@ -39,7 +39,7 @@ export default function Header() {
 export function ToolBar() {
   const router = useRouter();
   return (
-    <div className="flex gap-1">
+    <div className="flex">
       <ThemeSwitcher />
       {btns.map((item, index) => (
         <Button
