@@ -501,7 +501,7 @@ export default function TopicList() {
                 {(type === "share" && (
                   <Tooltip
                   placement="bottom"
-                  className="bg-gray-200/50 dark:bg-gray-900/50 backdrop-blur-lg"
+                  className="bg-gray-200/50 dark:bg-gray-900/50 backdrop-blur-lg "
                     Tooltip
                     content={
                       <div className="flex flex-col justify-center items-center p-1 text-gray-900 dark:text-gray-200 ">

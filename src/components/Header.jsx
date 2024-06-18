@@ -12,7 +12,7 @@ import { useRouter } from "next/navigation";
 
 const btns = [
   { icon: FaDiscord, url: "https://discord.gg" },
-  { icon: FaGithub, url: "https://github.com" },
+  { icon: FaGithub, url: "https://github.com/xiaomosong/zhipin" },
   { icon: FaTwitter, url: "https://twitter.com" },
 ];
 export default function Header() {

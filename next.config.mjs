@@ -119,6 +119,12 @@ const nextConfig = {
         port: '',
         pathname: '/mcs/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'z.zhipin.com',
+        port: '',
+        pathname: '/mpa/**',
+      },
     ],
   },
 };

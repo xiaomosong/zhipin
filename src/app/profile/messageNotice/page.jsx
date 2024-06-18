@@ -45,7 +45,7 @@ const Item = ({ content, index, handle, ...item }) => {
         <div className="text-gray-700 dark:text-gray-200/90  ">{content}</div>
         <div className="flex items-center gap-3 ml-auto relative">
           <PopConfirm
-            title="您确定要删除这项吗?"
+            content="您确定要删除这项吗?"
             onDelete={() => handle("delete", { id: item.fastReplyId })}
           >
             <Button isIconOnly radius="full" size="sm" className="text-red-600">
@@ -359,7 +359,7 @@ export default function MessageNotice() {
     2: <SetNoticeSharp />,
   }[current];
   return (
-    <div className="container mx-auto gap-4 flex mt-3 h-[900px] xl:px-[100px] px-4 sm:px-0">
+    <div className="container mx-auto gap-4 flex mt-3 h-[900px] xl:px-[100px] px-4">
       <div className="hidden lg:flex-[.2] lg:flex flex-col backdrop-blur-lg py-4 bg-gray-300/50 dark:bg-gray-900/50 rounded-[15px] overflow-auto">
         <div className="text-gray-600 dark:text-gray-200 px-4 md:px-6 py-4 md:py-5 text-2xl border-b border-b-gray-300/60 dark:border-b-gray-600/50">
           消息通知
