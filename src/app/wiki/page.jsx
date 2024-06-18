@@ -85,7 +85,7 @@ const Wiki = () => {
                 title: "新增词条榜",
               },
             ].map((item) => (
-              <div
+              <div key={item.title}
                 className={`flex ring-1 ring-gray-300 dark:text-white flex-1 flex-col group overflow-hidden rounded-[15px] relative`}
               >
                 <div className="p-4 flex gap-2 items-center ">
@@ -99,7 +99,7 @@ const Wiki = () => {
                 </div>
                 <div className="px-4 pb-4 max-h-[400px] flex flex-col gap-3 overflow-auto">
                   {Array.from({ length: 13 }).map((itemUrl, index) => (
-                    <div className="flex items-center gap-3 ">
+                    <div className="flex items-center gap-3 " key={itemUrl}>
                       <div className="self-start">{index + 1}</div>
                       <div className="flex flex-col gap-1">
                         <div className="">视频编辑</div>
@@ -131,7 +131,7 @@ const Wiki = () => {
                 title: "近期热招",
               },
             ].map((item) => (
-              <div
+              <div key={item.title}
                 className={`flex ring-1 ring-gray-300 dark:text-white flex-1 gap-2 flex-col group overflow-hidden rounded-[15px] relative`}
               >
                 <Image
@@ -145,7 +145,7 @@ const Wiki = () => {
                 </div>
                 <div className="p-3 max-h-[400px] overflow-auto flex flex-col gap-3">
                   {Array.from({ length: 13 }).map((itemUrl) => (
-                    <div className="flex items-center gap-3">
+                    <div className="flex items-center gap-3" key={itemUrl}>
                       <Image
                         width={60}
                         height={40}
@@ -175,7 +175,7 @@ const Wiki = () => {
               "https://img.bosszhipin.com/beijin/cms/0e2fb606602d406c481e503ee211c539fbcf1fe2146e01096e1e8f8db8373f6976ebcef32c924876a76cf47375d5d24d.jpeg?x-oss-process=image/resize,w_540,limit_0",
               "https://img.bosszhipin.com/beijin/cms/9bb82e68ee1dc2653373ac54bbd910b4fbcf1fe2146e01096e1e8f8db8373f6964894dd2c02e4d72aa571119175b14a4.jpg?x-oss-process=image/resize,w_540,limit_0",
             ].map((item) => (
-              <div className="flex flex-1 gap-2 flex-col group overflow-hidden">
+              <div className="flex flex-1 gap-2 flex-col group overflow-hidden" key={item}>
                 <div className="rounded-[15px] relative overflow-hidden ">
                   <Image
                     width={150}
@@ -195,7 +195,7 @@ const Wiki = () => {
           <div className="text-lg dark:text-white">职业故事</div>
           <div className="grid grid-cols-1 sm:grid-cols-4 gap-5 mt-4">
             {[3, 2, 1, 4].map((item) => (
-              <div className="flex flex-col flex-1 gap-2 hover:cursor-pointer group/item">
+              <div className="flex flex-col flex-1 gap-2 hover:cursor-pointer group/item" key={item}>
                 <div className="rounded-[15px] relative overflow-hidden group before:content-[''] before:absolute before:top-[80%] before:left-0 before:right-0 before:bottom-0 before:bg-gradient-to-t before:from-10% to-99% before:from-gray-900 to-transparent">
                   <Image
                     width={150}
