@@ -42,7 +42,7 @@ export default function NavbarCus() {
     { title: "首页", url: "/home" },
     { title: "推荐" },
     { title: "搜索" },
-    { title: "公司" },
+    { title: "公司",url:'/company' },
     { title: "校园" },
     { title: "海归" },
     { title: "APP" },
@@ -107,14 +107,15 @@ export default function NavbarCus() {
     >
       <div className="container mx-auto flex items-center h-full">
         <Image
+          onClick={() => pathName !== "/home" && router.push("/home")}
           width={100}
           height={0}
           alt="missed"
-          className="mr-4 object-contain"
+          className="mr-4 object-contain hover:cursor-pointer"
           src="https://img.bosszhipin.com/static/file/2023/odhroxegzz1678788090652.png"
         />
         <NavbarContent className="gap-4 relative hidden xl:flex ">
-        <Location />
+          <Location />
           {navs.map((item, index) => (
             <NavbarItem key={item.title}>
               <Link

@@ -212,15 +212,16 @@ export default function MessageRoom({ handleClose, flag }) {
               <Menu size={25} className="hidden sm:block" />
               <ChevronLeft size={25} className="block sm:hidden" />
             </Button>
-            <div className="flex-1 flex flex-col md:flex-row lg:justify-start justify-center items-center">
+            <div className="flex-1 flex flex-col md:gap-3 md:flex-row lg:justify-start justify-center items-center">
               <div className="text-gray-900 dark:text-gray-50">{data.name}</div>
-              <div className="flex gap-6 items-center  divide-red-600 text-sm md:text-medium">
+              <div className="flex gap-2 items-center text-sm md:text-medium">
                 <span className="text-gray-900 dark:text-gray-300 line-clamp-1">
                   {data.companyName}
                 </span>
-                <span className="text-gray-900 dark:text-gray-300 line-clamp-1 relative before:content-['|'] before:text-gray-400 dark:before:text-gray-500 before:absolute before:-left-4">
+                <div className="text-gray-800 dark:text-gray-300 line-clamp-1 relative flex items-center ">
+                  <div className=" bg-gray-400 w-1 h-1 rounded-full dark:bg-gray-300 mr-2"></div>
                   {data.title}
-                </span>
+                </div>
               </div>
             </div>
             <div className="flex md:hidden items-center">
@@ -305,8 +306,8 @@ export default function MessageRoom({ handleClose, flag }) {
         </div>
       </div>
       <div className="footer sticky bottom-0 rounded-t-[15px] border-t dark:border-t-gray-600 z-10 bg-gray-50 dark:bg-gray-600/20  backdrop-blur-lg">
-        <div className="flex w-full flex-col sm:hidden items-center py-2">
-          <div className="flex flex-1 w-full border-b border-b-gray-300/80  dark:border-b-gray-700/90">
+        <div className=" w-full sm:hidden  ">
+          <div className="flex items-center flex-1 w-full py-2">
             <Button
               isIconOnly
               radius="full"
@@ -316,7 +317,7 @@ export default function MessageRoom({ handleClose, flag }) {
             >
               <MessageSquareMore />
             </Button>
-            <Input placeholder="常用语" className="bg-transparent flex-1" />
+            <Input placeholder="常用语" />
             <div className="flex items-center">
               <Button
                 isIconOnly
@@ -338,7 +339,7 @@ export default function MessageRoom({ handleClose, flag }) {
             </div>
           </div>
           {
-            iconType && <div className="flex w-full items-center py-4 justify-around">
+            iconType && <div className="flex w-full items-center py-4 justify-around border-t border-t-gray-300/60  dark:border-t-gray-700/70">
             {mobileBtns.map((item) => (
               <div className="flex flex-col justify-center items-center gap-3 text-gray-900 dark:text-gray-50" key={item.title}>
                 <Button onClick={() => handleAction(item.type)} isIconOnly>{<item.icon size="26" />}</Button>
@@ -401,7 +402,7 @@ export default function MessageRoom({ handleClose, flag }) {
                     notice ? "animate__slideInRight" : "animate__slideOutRight"
                   }`}
                 >
-                  <div className="bg-[url(https://z.zhipin.com/mpa/v24/vip/image/bg_normal_active.9006a0c.png)] pt-4 bg-top bg-[length:1000%_180px] bg-no-repeat  ">
+                  <div className="bg-[url(https://z.zhipin.com/mpa/v24/vip/image/bg_normal_active.9006a0c.png)] pt-4 bg-top bg-[length:100%_200px] bg-no-repeat  ">
                     <div className="relative flex pt-4 text-[#ffc2a4cc] items-center justify-center before:absolute before:content-[''] before:w-[50px] before:h-[2px] before:left-[15px] before:bg-gradient-to-l before:from-[#ffc2a4cc]/90 before:to-transparent after:absolute after:content-[''] after:bg-gradient-to-r after:from-[#ffc2a4cc]/90 after:to-transparent after:right-[15px] after:w-[50px] after:h-[2px]">
                       想让Boss优先查看你的消息？
                     </div>

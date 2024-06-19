@@ -388,16 +388,16 @@ export default function TopicList() {
           key={item.originalContentId}
           className="backdrop-blur-lg p-4 group hover:cursor-pointer bg-gray-300/50 dark:bg-gray-900/50 rounded-[15px] overflow-hidden"
         >
-          <div className="flex gap-2">
+          <div className="flex gap-2 items-center">
             <Image
               src={postUserInfo.avatar}
               width={50}
               height={50}
               alt="missed"
-              className="rounded-full size-[50px] ring-1 ring-gray-400/80 dark:ring-gray-200/80  outline hover:ring-4 transition-all duration-200"
+              className="rounded-full size-[40px] sm:size-[45px] md:size-[50px] ring-1 ring-gray-400/80 dark:ring-gray-200/80  outline hover:ring-4 transition-all duration-200"
             />
             <div className="flex-1 flex justify-between">
-              <div className="flex-1 flex flex-col justify-center">
+              <div className="flex-1 flex flex-col justify-center text-sm md:text-medium">
                 <div className="text-gray-600 dark:text-gray-300/90">
                   {postUserInfo.bcName}
                 </div>
